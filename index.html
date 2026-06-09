@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Undangan Pernikahan</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --gold: #d4af37;
+        --dark: #1f1f1f;
+        --light: #fafafa;
+        --white: #ffffff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: var(--light);
+        color: var(--dark);
+        line-height: 1.6;
+      }
+
+      section {
+        padding: 80px 20px;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: auto;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Playfair Display", serif;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 25px;
+        background: var(--gold);
+        color: white;
+        text-decoration: none;
+        border-radius: 30px;
+        transition: 0.3s;
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+      }
+
+      .hero {
+        min-height: 100vh;
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+          url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1600&q=80");
+        background-size: cover;
+        background-position: center;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+      .hero-content h1 {
+        font-size: 4rem;
+      }
+
+      .hero-content p {
+        margin: 15px 0;
+      }
+
+      .card {
+        background: white;
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        color: var(--gold);
+      }
+
+      .couple {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+      }
+
+      .person {
+        text-align: center;
+      }
+
+      .person img {
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 6px solid var(--gold);
+      }
+
+      .countdown {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .time-box {
+        width: 120px;
+        background: white;
+        border-radius: 15px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .time-box span {
+        display: block;
+        font-size: 2rem;
+        font-weight: bold;
+        color: var(--gold);
+      }
+
+      .timeline {
+        max-width: 800px;
+        margin: auto;
+      }
+
+      .timeline-item {
+        background: white;
+        margin-bottom: 20px;
+        padding: 20px;
+        border-left: 5px solid var(--gold);
+        border-radius: 10px;
+      }
+
+      .gallery-scroll{
+
+    display:flex;
+    gap:15px;
+
+    overflow-x:auto;
+
+    scroll-behavior:smooth;
+
+    padding-bottom:10px;
+
+}
+
+.gallery-scroll::-webkit-scrollbar{
+
+    height:8px;
+
+}
+
+.gallery-scroll::-webkit-scrollbar-thumb{
+
+    background:#d4af37;
+    border-radius:20px;
+
+}
+
+.gallery-scroll img{
+
+    width:220px;
+
+    height:330px;
+
+    object-fit:cover;
+
+}
+
+.gallery-scroll img:hover{
+
+    transform:scale(1.03);
+
+}
+
+      .event-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+      }
+
+      .gift-box {
+        text-align: center;
+      }
+
+      .gift-box p {
+        margin: 10px 0;
+      }
+
+      footer {
+        background: #111;
+        color: white;
+        text-align: center;
+        padding: 30px;
+      }
+
+      .music-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 55px;
+        height: 55px;
+        border: none;
+        border-radius: 50%;
+        background: var(--gold);
+        color: white;
+        cursor: pointer;
+        font-size: 20px;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 12px;
+        margin-top: 10px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+      }
+
+      textarea {
+        min-height: 120px;
+      }
+
+      @media (max-width: 768px) {
+        .hero-content h1 {
+          font-size: 2.7rem;
+        }
+      }
+      .ucapan-item {
+        background: white;
+        padding: 15px;
+        margin-top: 15px;
+        border-radius: 12px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+      }
+
+      .ucapan-item h4 {
+        color: #d4af37;
+        margin-bottom: 5px;
+      }
+      .guest-box {
+        margin: 25px auto;
+        padding: 20px;
+        max-width: 500px;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+      }
+
+      .guest-box h3 {
+        margin: 10px 0;
+        color: #fff;
+      }
+
+      .guest-box small {
+        font-size: 14px;
+      }
+      .slider{
+    width:100%;
+    overflow:hidden;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,.15);
+}
+
+.slides{
+    display:flex;
+    width:400%;
+    animation:slide 16s infinite;
+}
+
+.slides img{
+    width:100%;
+    height:600px;
+    object-fit:contain;
+    background:#fff;
+}
+
+@keyframes slide{
+
+    0%{
+        transform:translateX(0);
+    }
+
+    20%{
+        transform:translateX(0);
+    }
+
+    25%{
+        transform:translateX(-100%);
+    }
+
+    45%{
+        transform:translateX(-100%);
+    }
+
+    50%{
+        transform:translateX(-200%);
+    }
+
+    70%{
+        transform:translateX(-200%);
+    }
+
+    75%{
+        transform:translateX(-300%);
+    }
+
+    95%{
+        transform:translateX(-300%);
+    }
+
+    100%{
+        transform:translateX(0);
+    }
+}
+
+/* TARUH DI SINI */
+@media(max-width:768px){
+
+    .slides img{
+
+        height:300px;
+
+    }
+
+}
+    </style>
+  </head>
+  <script>
+    function kirimUcapanWA() {
+      const nama = document.getElementById("nama").value.trim();
+
+      const ucapan = document.getElementById("ucapan").value.trim();
+
+      if (!nama || !ucapan) {
+        alert("Silakan isi nama dan ucapan terlebih dahulu");
+
+        return;
+      }
+
+      const nomorWA = "6282141338702";
+
+      const pesan = `💌 Ucapan Pernikahan
+
+Nama: ${nama}
+
+Ucapan:
+${ucapan}`;
+
+      const url = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
+
+      window.open(url, "_blank");
+    }
+  </script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+
+    const tamu = params.get("to");
+
+    if (tamu) {
+      document.getElementById("namaTamu").innerText = decodeURIComponent(tamu);
+    }
+  </script>
+  <body>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-content">
+        <p>The Wedding Of</p>
+        <div class="guest-box">
+          <small>Kepada Yth.</small>
+          <h3 id="namaTamu">Bapak/Ibu/Saudara/i</h3>
+          <p>Mohon maaf apabila ada kesalahan penulisan nama dan gelar</p>
+        </div>
+        <h1>Agus & Melly</h1>
+        <p>12 Desember 2026</p>
+        <a href="#couple" class="btn">Buka Undangan</a>
+      </div>
+    </section>
+
+    <!-- COUPLE -->
+    <section id="couple">
+      <div class="container">
+        <div class="section-title">
+          <h2>Mempelai</h2>
+        </div>
+
+        <div class="couple">
+          <div class="person">
+            <img src="images/pria1.jpg" alt="Agus Dwi Priyono" />
+            <h3>Agus Dwi Priyono</h3>
+            <p>Putra Bapak Alm Moh Jupri & Ibu Almh Siti Maryam</p>
+          </div>
+
+          <div class="person">
+            <img src="images/wanita.jpg" alt="Kamilia Nur Hasanah" />
+            <h3>Kamilia Nur Hasanah</h3>
+            <p>Putri Bapak Alm Ahmad & Ibu Era</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COUNTDOWN -->
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <h2>Menuju Hari Bahagia</h2>
+        </div>
+
+        <div class="countdown">
+          <div class="time-box">
+            <span id="days">0</span>
+            Hari
+          </div>
+          <div class="time-box">
+            <span id="hours">0</span>
+            Jam
+          </div>
+          <div class="time-box">
+            <span id="minutes">0</span>
+            Menit
+          </div>
+          <div class="time-box">
+            <span id="seconds">0</span>
+            Detik
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENT -->
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <h2>Detail Acara</h2>
+        </div>
+
+        <div class="event-grid">
+          <div class="card">
+            <h3>Akad Nikah</h3>
+            <p><strong>Sabtu, 13 June 2026</strong></p>
+            <p>07.00 WIB</p>
+            <p>Tempat Mempelai Wanita</p>
+            <p>Alassumur Lor Dusun Terong</p>
+          </div>
+
+          <div class="card">
+            <h3>Resepsi</h3>
+            <p><strong>Sabtu, 13 June 2026</strong></p>
+            <p>10.00 WIB - Selesai</p>
+            <p>Tempat Mempelai Wanita</p>
+            <p>Alassumur Lor Dusun Terong</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <div class="gallery-scroll">
+
+    <img src="images/a.jpg" alt="">
+    <img src="images/2.jpg" alt="">
+    <img src="images/3.jpg" alt="">
+    <img src="images/b.jpg" alt="">
+    <img src="images/c.jpg" alt="">
+
+</div>
+
+    <!-- RSVP -->
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <h2>Ucapan & Doa</h2>
+        </div>
+
+        <div class="card">
+          <input type="text" id="nama" placeholder="Nama Anda" />
+
+          <textarea
+            id="ucapan"
+            placeholder="Tulis ucapan dan doa..."
+          ></textarea>
+
+          <br /><br />
+
+          <button class="btn" onclick="kirimUcapanWA()">
+            Kirim Ucapan via WhatsApp
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- GIFT -->
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <h2>Wedding Gift</h2>
+          <p>Doa restu Anda merupakan hadiah terindah bagi kami.</p>
+        </div>
+
+        <div class="card gift-box">
+          <h3>Transfer Bank</h3>
+
+          <p>Bank BCA</p>
+
+          <h2 id="rekening">3151723452</h2>
+
+          <p>a.n. Agus Dwi Priyono</p>
+
+          <button class="btn" onclick="copyRekening()">Salin Rekening</button>
+
+          <hr style="margin: 30px 0" />
+
+          <h3>Scan QRIS</h3>
+
+          <p>DANA • OVO • GoPay • ShopeePay • Mobile Banking</p>
+
+          <img
+            src="images/qris.jpeg"
+            alt="QRIS"
+            style="
+              width: 100%;
+              max-width: 300px;
+              margin-top: 20px;
+              border-radius: 15px;
+              box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            "
+          />
+
+          <br /><br />
+
+          <a href="images/qris.png" download class="btn"> Download QRIS </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAPS -->
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <h2>Lokasi Acara</h2>
+        </div>
+
+        <div class="card" style="text-align: center">
+          <h3>Tempat Acara Pernikahan</h3>
+
+          <p>Klik tombol di bawah untuk membuka lokasi acara di Google Maps.</p>
+
+          <br />
+
+          <a
+            href="https://maps.app.goo.gl/wvDezVwd7ypZ7i1w9?g_st=aw"
+            target="_blank"
+            class="btn"
+          >
+            📍 Buka Google Maps
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Terima kasih atas doa dan kehadirannya.</p>
+      <h3>Agus & Melly</h3>
+    </footer>
+
+    <!-- AUDIO -->
+    <audio id="bgMusic" loop>
+      <source src="music.mp3" type="audio/mpeg" />
+    </audio>
+
+    <button class="music-btn" onclick="toggleMusic()">♫</button>
+
+    <script>
+      // COUNTDOWN
+      const weddingDate = new Date("June 13, 2026 10:00:00").getTime();
+      setInterval(() => {
+        const now = new Date().getTime();
+        const distance = weddingDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+        );
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerHTML = days;
+        document.getElementById("hours").innerHTML = hours;
+        document.getElementById("minutes").innerHTML = minutes;
+        document.getElementById("seconds").innerHTML = seconds;
+      }, 1000);
+
+      // MUSIC
+      const music = document.getElementById("bgMusic");
+
+      function toggleMusic() {
+        if (music.paused) {
+          music.play();
+        } else {
+          music.pause();
+        }
+      }
+
+      // autoplay setelah interaksi pertama
+      document.body.addEventListener(
+        "click",
+        () => {
+          music.play().catch(() => {});
+        },
+        { once: true },
+      );
+
+      function copyRekening() {
+        const rekening = document.getElementById("rekening").innerText;
+
+        navigator.clipboard.writeText(rekening);
+
+        alert("Nomor rekening berhasil disalin");
+      }
+    </script>
+  </body>
+</html>
