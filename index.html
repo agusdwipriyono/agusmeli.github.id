@@ -379,13 +379,14 @@ ${ucapan}`;
     }
   </script>
   <script>
-    const params = new URLSearchParams(window.location.search);
+    document.addEventListener("DOMContentLoaded", () => {
+    const namaTamu = new URLSearchParams(location.search).get("to");
 
-    const tamu = params.get("to");
-
-    if (tamu) {
-      document.getElementById("namaTamu").innerText = decodeURIComponent(tamu);
+    const el = document.getElementById("namaTamu");
+    if (el && namaTamu) {
+        el.textContent = decodeURIComponent(namaTamu);
     }
+});
   </script>
   <body>
     <!-- HERO -->
